@@ -1,1 +1,5 @@
+---
+layout: default
+---
+
 this is the index file
