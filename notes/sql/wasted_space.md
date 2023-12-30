@@ -1,3 +1,15 @@
+---
+layout: notes
+---
+
+# Sql server experiments 2
+
+
+```
+*** DRAFT ***
+```
+
+```sql
 truncate table Food
 
 DBCC SHRINKFILE (N'Test001' , 1)
@@ -20,3 +32,4 @@ exec sys.sp_spaceused  @objname='Food'
 
 DBCC SHRINKFILE (N'Test001' , 1)
 DBCC SHRINKFILE (N'Test001_log' , 1)
+```

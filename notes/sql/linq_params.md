@@ -50,9 +50,8 @@ order by last_execution_time desc
 ```
 
 ## Entity Framework issues and parameters-free query
-Unforunatelly, when working with EntityFramework, we do not have control over the automatically generated sql query. 
-EF always uses parameters when possibile. Currently - as far as I know - there is no way to "ask" EF to create plain query without parameters.
-But... in some cases, EF doesn't use parameters. One of them is the sql "IN" clause, Contains() in Linq. 
+Unforunatelly, when working with EntityFramework, we do not have control over the automatically generated sql queries.  EF always uses parameters whenever possibile. Currently - as far as I know - there is no way to "ask" EF to create plain query without parameters.
+But, in some cases, EF already doesn't use parameters. One of them is the sql "IN" clause, Contains() in Linq. 
 In such a case, EF generates a query like this:
 
 ```SQL
@@ -65,10 +64,9 @@ With only one element in Contains clause, the generated SQL is like this:
 SELECT id,name,age FROM Customer WHERE 89 = countryID 
 ```
 
-In both cases, the query is "plain", without parameters. 
-This will force SQL engine to create a new plane, re-evaluating which is the best strategy to use.
+In both cases, the query is "plain", without parameters. This will force SQL engine to create a new execution plan, re-evaluating which is the best strategy to use.
 
-So, in some cases when can slightly change the Linq query to have a sql query without parameters. 
+So, in some cases we can slightly change the Linq queries to have a parameters-less sql query. 
 Example, instead of writing:
 
 ```csharp
@@ -87,7 +85,7 @@ int[] values = new int[] { catID };
 query = query.Where(x => values.Contains(x.CategoryID));
 ```
 
-The running sql query will be like this:
+The generated sql query will be like this:
 ```SQL
 SELECT 
    [Extent1].[ID] AS [ID], 

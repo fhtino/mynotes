@@ -1,4 +1,4 @@
 ---
 layout: notes_index
 ---
-# Azure
+# Azure [index]

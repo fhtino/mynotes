@@ -1,8 +1,8 @@
 ---
 layout: notes_index
+title: "[index]"
 ---
 
-<h1>my notes</h1>
 
  
 

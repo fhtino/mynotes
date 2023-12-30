@@ -2,7 +2,7 @@
 layout: notes
 ---
 
-# Linux
+# Linux - misc
 
 ## Network IP address
 

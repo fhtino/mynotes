@@ -2,7 +2,7 @@
 layout: notes
 ---
 
-# icacls
+# Windows icacls
 
 Offical documentation: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/icacls  
 
